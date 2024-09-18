@@ -57,7 +57,7 @@ def selling_price(town,flat_type,floor_area_sqm,flat_model,lease_commence_date
     data = np.array([[town,flat_type,floor_area_sqm,flat_model,lease_commence_date
                 ,year,storey_start,storey_end,remaining_lease_year,remaining_lease_month]])
     predict = model.predict(data)
-    price = predict[0]
+    price = np.exp(predict[0])
     return round(price)
 
 st.set_page_config(layout="wide")
